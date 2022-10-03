@@ -1,0 +1,346 @@
+body {
+    background-image: url('/images/pexels-pixabay-209831.jpg');
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: fixed;
+    width: 100%;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+:root {
+    --primary-color: crimson;
+    --secondary-color: #212121;
+}
+
+.max-width {
+    max-width: 1300px;
+    padding: 0px 80px;
+    margin: auto;
+}
+
+.navbar {
+    /* background: crimson; */
+    position: fixed;
+    width: 100%;
+    /* margin-top: -20px; */
+    padding: 20px 0px;
+    font-family: 'Ubuntu', sans-serif;
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+.navbar.sticky {
+    background: var(--primary-color);
+    padding: 15px 0px;
+    /* margin-top: 20px; */
+
+}
+
+.navbar .max-width {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar .logo a {
+    font-size: 43px;
+    font-weight: 600;
+    color: #212121;
+    font-family: 'Dancing Script', cursive;
+}
+
+.navbar .logo a span {
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+    font-family: 'Dancing Script', cursive;
+}
+
+.navbar.sticky .logo a span {
+    color: #fff;
+}
+
+.navbar .menu li {
+    list-style: none;
+    display: inline-block;
+}
+
+.navbar .menu li a {
+    display: block;
+    color: whitesmokes;
+    margin-left: 25px;
+    font-size: 20px;
+    font-weight: 600;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.navbar .menu li a.active::after {
+    content: "";
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background: rgb(0, 0, 0);
+    bottom: -8px;
+    left: 0;
+    border-radius: 2px;
+    animation: appear 0.2s linear;
+}
+
+@keyframes appear {
+    form {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+.navbar .menu li a:hover {
+    color: crimson;
+}
+
+.navbar.sticky .menu li a:hover {
+    color: #fff;
+}
+.menu-btn {
+    color: #fff;
+    font-size: 23px;
+    cursor: pointer;
+    display: none;
+}
+
+.main {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%, -50%);
+    height: 100%;
+}
+
+.time {
+    position: absolute;
+    color: white;
+    font-family: 'Pacifico', cursive;
+    font-size: 45px;
+}
+
+.day {
+    top: 3%;
+    left: 15%;
+    position: absolute;
+    color: white;
+    font-family: "dancing script";
+    font-size: 75px;
+}
+
+.date {
+    position: absolute;
+    top: -9%;
+    left: -12%;
+    color: white;
+    font-family: "roboto";
+    font-size: 67px;
+}
+
+/* MEDIA QUERIES */
+
+@media(max-width:1400px) {
+    .day {
+        left: 17%;
+        position: absolute;
+    }
+}
+
+@media(max-width:1100px) {
+    .day {
+        left: 18.5%;
+        position: absolute;
+        font-size: 100px;
+    }
+}
+
+@media(max-width:900px) {
+    .main {
+        position: relative;
+        top: 45%;
+        left: 40%;
+        transform: translateX(-50%, -50%);
+        height: 100%;
+    }
+
+    .time {
+        position: absolute;
+        font-size: 55px;
+    }
+
+    .day {
+        top: 4%;
+        left: 28%;
+        position: absolute;
+        font-size: 85px;
+    }
+
+    .date {
+        position: absolute;
+        font-size: 77px;
+    }
+}
+
+@media(max-width:877px) {
+    .menu-btn{
+        display: block;
+        z-index: 999;
+    }
+    .menu-btn i.active:before{
+        content: "\f00d";
+    }
+    .max-width{
+        padding: 0px 50px;
+    }
+    .navbar .menu{
+        position: fixed;
+        background-color: #111;
+        width: 100%;
+        height: 100vh;
+        left: -100%;
+        top: 0;
+        text-align: center;
+        padding: 80px;
+        transition: all 0.3s ease;
+    }
+    .navbar .menu.active{
+        left: 0;
+    }
+    .navbar .menu li{
+        display: block;
+    }
+    .navbar .menu li a{
+        display: inline-block;
+        font-size: 25px;
+        margin: 20px 0px;
+    }
+    .main {
+        position: relative;
+        top: 45%;
+        left: 35%;
+        transform: translateX(-50%, -50%);
+        height: 100%;
+    }
+
+    .time {
+        position: absolute;
+        font-size: 55px;
+    }
+
+    .day {
+        top: 6%;
+        left: 28%;
+        position: absolute;
+        font-size: 85px;
+    }
+
+    .date {
+        position: absolute;
+        font-size: 77px;
+    }
+}
+
+@media(max-width:865px) {
+    .main {
+        position: relative;
+        top: 45%;
+        left: 35%;
+        transform: translateX(-50%, -50%);
+        height: 100%;
+    }
+
+    .time {
+        position: absolute;
+        font-size: 65px;
+        top: -2%;
+    }
+
+    .day {
+        top: 11%;
+        left: 28%;
+        position: absolute;
+        font-size: 105px;
+    }
+
+    .date {
+        position: absolute;
+        font-size: 87px;
+        top: -13%;
+        left: -15%;
+    }
+}
+@media(max-width:500px) {
+    .main {
+        position: relative;
+        top: 45%;
+        left: 28%;
+        transform: translateX(-50%, -50%);
+        height: 100%;
+    }
+
+    .time {
+        position: absolute;
+        font-size: 65px;
+        top: -2%;
+        left: -3%;
+    }
+
+    .day {
+        top: 11%;
+        left: 30%;
+        position: absolute;
+        font-size: 105px;
+    }
+
+    .date {
+        position: absolute;
+        font-size: 87px;
+        top: -13%;
+        left: -19%;
+    }
+}
+@media(max-width:500px) {
+    .main {
+        position: relative;
+        top: 45%;
+        left: 28%;
+        transform: translateX(-50%, -50%);
+        height: 100%;
+    }
+
+    .time {
+        position: absolute;
+        font-size: 65px;
+        top: -2%;
+        left: -5%;
+    }
+
+    .day {
+        top: 11%;
+        left: 33%;
+        position: absolute;
+        font-size: 105px;
+    }
+
+    .date {
+        position: absolute;
+        font-size: 87px;
+        top: -13%;
+        left: -22%;
+    }
+}

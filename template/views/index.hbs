@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/css/index.css">
+<!-- FAVICON LINK -->
+<link rel="icon" type="image/x-icon" href="/images/favicon.png">
+<!-- FONT AWESOME -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script type="text/javascript" src="/js/rain.js"></script>
+<!--J-QUERY CDN-->
+<SCRIPT src="https://code.jquery.com/jquery-3.6.0.min.js"></SCRIPT>
+<!--FONT AWSOME CDN-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<!--waypoint cdn-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+<!--owl crowsel js cdn-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<!--owl crowsel css cdn-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js" integrity="sha512-3J8teBiHrSyaaRBajZyIEtpDsXdPq1gsznKWIVb5CnorQuFhjWGhWe54z8YNnHHr7MZuExb9m5kvf964HiT1Sw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="./js/script.js" defer></script>
+<!-- GOOGLE FONTS -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Pacifico&family=Poppins:wght@400;500&display=swap"
+    rel="stylesheet">
+<title>Mausam</title>
+</head>
+
+<body>
+    <div id="jsi-rain-container" class="container"></div>
+    
+    {{>navbar}}
+    <!-- body -->
+    <div class="main">
+        <div id="time" class="time"> </div>
+        <div id="day" class="day"> </div>
+        <div id="date" class="date"> </div>
+    </div>
+
+    <script>
+        // let date = document.getElementById("date");
+        // const getCurrentTime = ()=>{
+        // const weekday = ["Sun","Mon","Tues","Wed","Thurs","Fri","Sat"];
+        // const d = new Date();
+        // let weeday = weekday[d.getDay()];
+        // console.log(weeday);
+        // const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "June",
+        // "July", "Aug", "Sept", "Oct", "Nov", "Dec"];
+        // var dateObj = new Date();
+        // var month =  monthNames[dateObj.getMonth()] //months from 1-12
+        // var day = dateObj.getUTCDate();
+        // console.log( month + "/" + day);
+        // let hours = new Date().getHours();
+        // let min = new Date().getMinutes();
+        // let period = "AM"
+        // if (hours > 11) {
+        //     period = "PM"
+        //     if (hours > 12) hours -= 12;
+        // }
+        // if (min < 10) {
+        //     min = "0" + min;
+        // }
+        // var time = hours + ":" + min + " " + period;
+        // console.log(time)
+        // let currentDate= time ;
+        // let v = month;
+        // return currentDate;
+        // };
+        // date.innerHTML=getCurrentTime();
+        let time = document.getElementById("time");
+        let day = document.getElementById("day");
+        let date = document.getElementById("date");
+        const getCurrentTime = () => {
+            let hours = new Date().getHours();
+            let min = new Date().getMinutes();
+            let sec = new Date().getSeconds();
+            let period = "AM";
+            if (hours > 11) {
+                period = "PM"
+                if (hours > 12) hours -= 12;
+            }
+            if (min < 10) {
+                min = "0" + min;
+            }
+            var time = hours + ":" + min + " " + period;
+
+            console.log(time);
+            var tm = time;
+            return tm;
+        };
+        time.innerHTML = getCurrentTime();
+
+        const getCurrentDAY = () => {
+            const weekday = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
+            const day = new Date();
+            let weeday = weekday[day.getDay()];
+            var day_day = weeday;
+            return day_day;
+            console.log(day_day);
+        };
+        day.innerHTML = getCurrentDAY();
+
+        const getCurrentDate = () => {
+            const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "June",
+                "July", "Aug", "Sept", "Oct", "Nov", "Dec"];
+            var dateObj = new Date();
+            var month = monthNames[dateObj.getMonth()] //months from 1-12
+            var day = dateObj.getUTCDate();
+            var date = (month + " " + " " + day);
+            var date_date = date;
+            return date_date;
+        }
+        date.innerHTML = getCurrentDate();
+         $(`.menu-btn`).click(function(){
+        $(`.navbar .menu`).toggleClass("active");
+        $(`.menu-btn i`).toggleClass("active");
+        
+    });
+    </script>
+
+</body>
+<!-- </html>weeday +" "+ "| " + month +" "+ day+" | " + time -->
